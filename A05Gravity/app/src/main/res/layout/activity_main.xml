@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <!--
+        Layout Gravity : 내가 부모에게 붙을 때의 좌우정렬
+        Gravity : 내 자식(내용)이 나한테 붙을 때의 좌우정렬
+
+        여유공간이 없을 때, 그래비티는 의미가 없다.
+    -->
+
+    <Button
+        android:id="@+id/button1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+
+        android:textSize="20sp"
+        android:layout_gravity="left"/>
+
+    <Button
+        android:id="@+id/button2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+
+        android:textSize="20sp"
+        android:layout_gravity="center"/>
+
+    <Button
+        android:id="@+id/button3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Button"
+
+        android:textSize="20sp"
+        android:layout_gravity="right"/>
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Red Right 30sp"
+
+        android:gravity="right"
+        android:textSize="30sp"
+        android:textColor="#ffff0000"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Green Center 20sp"
+
+        android:textSize="20sp"
+        android:gravity="center"
+        android:textColor="#ff00ff00"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Blue Right 34sp"
+
+        android:textSize="34sp"
+        android:gravity="right"
+        android:textColor="#FF0000FF"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Blue Right 34sp"
+
+        android:textSize="34sp"
+        android:gravity="center_vertical"
+        android:textColor="#FF0000FF"/>
+</LinearLayout>
