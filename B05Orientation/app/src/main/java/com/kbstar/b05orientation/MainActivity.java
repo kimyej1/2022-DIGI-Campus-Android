@@ -85,5 +85,5 @@ public class MainActivity extends AppCompatActivity {
 }
 
 /*
-    AndroidManifest.xml 에 방향 전환 시
+    AndroidManifest.xml 에 방향 전환 시 속성 유지 설정
  */
