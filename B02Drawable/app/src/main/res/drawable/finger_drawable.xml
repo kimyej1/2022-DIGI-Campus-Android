@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:state_pressed="true"
+        android:drawable="@drawable/finger_pressed"/>
+    <item android:drawable="@drawable/finger" />
+
+    <!--
+        android:drawable : 원래는 이런 그림 보여줘
+        state_pressed : 누를 수 있어?
+            android:drawable : 눌렸을 때는 이런 그림 보여줘
+    -->
+
+</selector>
