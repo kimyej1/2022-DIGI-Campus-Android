@@ -107,6 +107,18 @@ public class MainActivity extends AppCompatActivity {
             Toast
                     .makeText(this, "BACK BUTTON is Pressed.", Toast.LENGTH_LONG)
                     .show();
+        } else if(keyCode == KeyEvent.KEYCODE_VOLUME_UP)
+        {
+            // Method Chain
+            Toast
+                    .makeText(this, "VOLUME + is Pressed.", Toast.LENGTH_LONG)
+                    .show();
+        } else if(keyCode == KeyEvent.KEYCODE_VOLUME_DOWN)
+        {
+            // Method Chain
+            Toast
+                    .makeText(this, "VOLUME - is Pressed.", Toast.LENGTH_LONG)
+                    .show();
         }
         return true;
     }
