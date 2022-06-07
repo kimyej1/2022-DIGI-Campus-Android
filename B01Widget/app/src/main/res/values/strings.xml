@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">B01Widget</string>
+    <string name="company">국민은행</string>
+    <string name="company_en">KBStar</string>
 </resources>
