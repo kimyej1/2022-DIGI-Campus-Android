@@ -3,6 +3,7 @@ package com.kbstar.b06toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -30,7 +31,10 @@ public class MainActivity extends AppCompatActivity {
                     int x = Integer.parseInt( editText.getText().toString() );
                     int y = Integer.parseInt( editText2.getText().toString() );
 
-                    Toast toast =
+                    Toast toast = Toast.makeText(MainActivity.this, "Toast Test", Toast.LENGTH_LONG);
+                    toast.setGravity(Gravity.TOP| Gravity.LEFT, x, y);  // x, y 정보를 그래비티에 반영!
+                    toast.show();
+
                 } catch (NumberFormatException e) {
 
                 }
