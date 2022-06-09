@@ -121,7 +121,7 @@ public class MainActivity extends AppCompatActivity {
             /*
                 .getString(String key, Set<String> defaultValues)
                     : String을 찾는데 없어서 디폴트로 null 이런게 들어오면 오류날 수도 있으니까,
-                      default값으로 "" 빈 값을 주기로 함.
+                      default값으로 "" 빈 String을 주기로 함.
              */
             textName.setText(name);
             showToast("restored Name = " + name);
