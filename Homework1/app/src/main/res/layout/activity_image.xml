@@ -3,21 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Fragment1"
-    android:orientation="vertical"
-    android:background="#FFABABEF">
+    tools:context=".ImageActivity"
+    android:orientation="vertical">
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Fragment 1"
+        android:text="Image Activity"
         android:textSize="30sp"/>
 
     <Button
-        android:id="@+id/btnActFrag1"
+        android:id="@+id/btnBack"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="100dp"
-        android:text="Open Activity" />
+        android:text="Back" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:src="@drawable/beach"/>
 
 </LinearLayout>

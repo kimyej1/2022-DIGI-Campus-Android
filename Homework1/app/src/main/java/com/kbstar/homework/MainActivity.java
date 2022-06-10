@@ -27,9 +27,6 @@ public class MainActivity extends AppCompatActivity {
         fragment2 = new Fragment2();
         fragment3 = new Fragment3();
 
-        // setSupportActionBar(toolBar);
-        this.setSupportActionBar(toolBar);
-
         ActionBar actionBar = getSupportActionBar();
         actionBar.setDisplayShowCustomEnabled(false);
 
@@ -42,13 +39,8 @@ public class MainActivity extends AppCompatActivity {
         /////////////// Tabs
         TabLayout tabs = findViewById(R.id.tabs);
 
-//        tabs.addTab(tabs.newTab().setText("Tab 4"));  // 프로그램으로 탭 하나 더 넣기 (근데 단순하진 않음)
-
         tabs.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            /*
-                onTabSelected 만 필요하지만,
-                Interface(onTabSelectedListener())에서 세개 다 implement 하라고 지정해둠
-             */
+
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 int idx = tab.getPosition();    // 0, 1, 2 중에 어떤 탭 선택?
@@ -68,14 +60,10 @@ public class MainActivity extends AppCompatActivity {
             }
 
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabUnselected(TabLayout.Tab tab) {}
 
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabReselected(TabLayout.Tab tab) {}
         });
 
     }
