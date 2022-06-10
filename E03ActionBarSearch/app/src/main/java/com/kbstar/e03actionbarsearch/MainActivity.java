@@ -88,5 +88,9 @@ public class MainActivity extends AppCompatActivity {
 
     public void showToast(String msg) {
         Toast.makeText(this, msg, Toast.LENGTH_LONG).show();
+        /*
+            this 대신에 원래는 context 자리니까 this.getApplicationContext() 쓰는게 맞음
+            또는 this 없이 getApplicationContext()
+         */
     }
 }
