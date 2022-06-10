@@ -1,6 +1,7 @@
 package com.kbstar.e02actionbar;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -17,6 +18,31 @@ public class MainActivity extends AppCompatActivity {
 
     TextView textView;
     Button button;
+    ActionBar actionBar;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        textView = findViewById(R.id.textView);
+        button = findViewById(R.id.button);
+        actionBar = getSupportActionBar();
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                actionBar.setLogo(R.drawable.home);
+                actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_HOME|ActionBar.DISPLAY_USE_LOGO);
+
+                /*
+                    DISPLAY_USE_LOGO    : 아이콘 부분에 로고 사용
+                            SHOW_HOME   : 홈 아이콘 표시
+                            HOME_AS_UP  :
+                 */
+            }
+        });
+    }
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {  // 옵션 안에 아이템이 선택되면 발생하는 이벤트
@@ -52,22 +78,6 @@ public class MainActivity extends AppCompatActivity {
 //        return super.onCreateOptionsMenu(menu);
         getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
-    }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-
-        textView = findViewById(R.id.textView);
-        button = findViewById(R.id.button);
-
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
-            }
-        });
     }
 
     public void showToast(String msg) {
