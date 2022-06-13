@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
     private Fragment2 fragment2;
     private Fragment3 fragment3;
     private Button button;
+    private int currentPage = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,7 +61,7 @@ public class MainActivity extends AppCompatActivity {
 //                pager.setCurrentItem(1);
 
                 // 2. 다음 페이지로 이동 (마지막페이지면 첫페이지로)
-                int currentPage = (pager.getCurrentItem() + 1) % pager.getOffscreenPageLimit();
+                currentPage = (pager.getCurrentItem() + 1) % pager.getOffscreenPageLimit();
                     // pager.getOffscreenPageLimit 대신 adapter.getCount() 써도 됨
                 pager.setCurrentItem(currentPage);
             }
