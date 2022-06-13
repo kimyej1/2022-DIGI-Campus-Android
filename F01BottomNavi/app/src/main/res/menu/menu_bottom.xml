@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <item
+        android:id="@+id/navi1"
+        android:icon="@android:drawable/ic_dialog_email"
+        android:title="Email" />
+
+    <item
+        android:id="@+id/navi2"
+        android:icon="@android:drawable/ic_dialog_info"
+        android:title="Info" />
+
+    <item
+        android:id="@+id/navi3"
+        android:icon="@android:drawable/ic_dialog_map"
+        android:title="Map" />
+
+</menu>
