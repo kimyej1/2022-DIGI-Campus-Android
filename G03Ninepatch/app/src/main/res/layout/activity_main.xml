@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:orientation="vertical">
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Small"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Small ABCD"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Small ABCD 1234"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Small ABCD 1234 ABCD"
+        android:layout_marginTop="20dp"/>
+
+    <Button
+        android:background="@drawable/button_image_01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Small ABCD 1234 ABCD 가나다라"
+        android:layout_marginTop="20dp"/>
+
+    <!-- .9.png : ninepatch (이미지 마우스오버 해보면 흰 테두리 있음) -->
+    <Button
+        android:background="@drawable/button_image_02"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Small ABCD 1234 ABCD 가나다라"
+        android:layout_marginTop="20dp"/>
+
+</LinearLayout>
