@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<set xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <translate
+        android:toXDelta="100%p"
+        android:fromXDelta="0%p"
+        android:duration="1000"
+        android:repeatCount="0"
+        android:fillAfter="true" /> <!-- 무한루프(Infinite) : -1, 1번(반복안함) : 0-->
+</set>

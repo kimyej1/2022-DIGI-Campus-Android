@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.WebResourceRequest;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -27,7 +28,7 @@ public class MainActivity extends AppCompatActivity {
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
-//        webView.setWebViewClient(new ViewClient());
+        webView.setWebViewClient(new ViewClient());
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,5 +38,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         webView.loadUrl("https://www.kbstar.com");  // 홈 페이지 고정
+    }
+
+    private class ViewClient extends WebViewClient {
+        @Override
+        public boolean shouldOverrideUrlLoading(WebView view, String url) { // 새 창 띄우지 말고 덮어써라
+            view.loadUrl(url);
+            return true;
+        }
     }
 }
