@@ -45,8 +45,26 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonAdapter.ViewHolder
         return items.size();                // 갯수를 이거를 통해(참조해서) 세는듯함,, 이게 0이면 item이 많아도 안보여줌 -> 무조건 overriding!
     }
 
-    public void addItem(Person person) {    // person adapter 내부에서 쓸건 아니고, main에서 데이터 쉽게 추가하려고 만들어둠
+    // 내부에서 쓸건 아니고, Main 등 외부에서 데이터 쉽게 추가하려고 만들어둠(API)
+    public void addItem(Person person) {
         items.add(person);
+    }
+
+    public void alterItem(int idx, Person person) {
+        items.set(idx, person);
+    }
+
+    public void removeItem(int idx) {
+        items.remove(idx);
+    }
+
+    public Person getItem(int idx) {
+        return items.get(idx);
+    }
+
+    // 한번에 리스트 형태를 만들어서 넣기
+    public void setItems(ArrayList<Person> items){
+        this.items = items;
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {
