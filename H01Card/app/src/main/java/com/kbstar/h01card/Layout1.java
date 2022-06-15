@@ -16,6 +16,26 @@ public class Layout1 extends LinearLayout {
     TextView textView;
     TextView textView2;
 
+    public void setName(String name) {
+        textView.setText(name);
+    }
+
+    public String getName() {
+        return textView.getText().toString();
+    }
+
+    public void setMobile(String mobile) {
+        textView2.setText(mobile);
+    }
+
+    public String getMobile() {
+        return textView2.getText().toString();
+    }
+
+    public void setImage(int resourceId) {
+        imageView.setImageResource(resourceId);
+    }
+
     public Layout1(Context context) {
         super(context);
         init(context);
