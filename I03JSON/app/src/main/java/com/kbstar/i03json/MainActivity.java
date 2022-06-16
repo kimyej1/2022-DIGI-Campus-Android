@@ -59,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
                 new Response.Listener<String>() {                   // 3. 성공했을 때
                     @Override
                     public void onResponse(String response) {
-                        printLog(response);
+//                        printLog(response);
                         processJson(response);
                     }
                 }, new Response.ErrorListener() {                   // 4. 실패했을 때
