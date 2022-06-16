@@ -11,7 +11,7 @@
         android:id="@+id/input"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="https://www.kbstar.com"
+        android:text="http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=304eba0921b36f45a1ff72c27591765f&#38;targetDt=20220601"
         android:textSize="20sp"
         android:inputType="text"/>
 
