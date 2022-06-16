@@ -1,0 +1,72 @@
+package com.kbstar.i05mydatabase;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.database.sqlite.SQLiteDatabase;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
+
+/*
+    Android DB : SQLite Embedded 되어있다
+
+    SQLite : 파일로 만들어진 하위 수준의 데이터베이스
+        데이터 복사, 이동, 삭제
+        파일임에도 데이터 조회 속도가 빠르다.
+
+        표준 SQL 지원 : Insert, Update, Select, Delete, Create, Alter
+ */
+public class MainActivity extends AppCompatActivity {
+
+    EditText inputDB, inputTable;
+    Button buttonDB, buttonTable;
+    TextView debugText;
+    SQLiteDatabase db;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        inputDB = findViewById(R.id.inputDB);
+        inputTable = findViewById(R.id.inputTable);
+        buttonDB = findViewById(R.id.buttonDB);
+        buttonTable = findViewById(R.id.buttonTable);
+        debugText = findViewById(R.id.debugText);
+
+        buttonDB.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createDB(inputDB.getText().toString());
+            }
+        });
+
+        buttonTable.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                createTable(inputTable.getText().toString());
+            }
+        });
+    }
+
+    public void createDB(String dbName) {
+        db = openOrCreateDatabase(dbName, MODE_PRIVATE, null);
+        printDebug("DB Created : " + dbName);
+    }
+
+    public void createTable(String tableName) {
+        if(db == null) {
+            printDebug("[ERROR] NO Database Selected..");
+        } else {
+            db.execSQL("CREATE TABLE if not exists " + tableName
+                    + "(idx integer auto_increment, name text, age integer, primary key(idx) )");
+            printDebug("Table Created : " + tableName);
+        }
+    }
+
+    public void printDebug(String msg) {
+        debugText.append("\n" + msg);
+    }
+}
