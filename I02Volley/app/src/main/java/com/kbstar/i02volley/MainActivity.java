@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void process() {
         String url = input.getText().toString();
+        textView.setText("");
 
         StringRequest request = new StringRequest(
                 Request.Method.GET,                                 // 1. 메소드
