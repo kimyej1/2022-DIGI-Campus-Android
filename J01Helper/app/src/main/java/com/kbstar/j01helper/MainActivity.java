@@ -24,7 +24,9 @@ public class MainActivity extends AppCompatActivity {
     Button buttonDB, buttonTable;
     TextView debugText;
     String table;
+
     SQLiteDatabase db;
+    DatabaseHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +56,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createDB(String dbName) {
-        db = openOrCreateDatabase(dbName, MODE_PRIVATE, null);
-        printDebug("DB Created : " + dbName);
+        // Without Helper
+//        db = openOrCreateDatabase(dbName, MODE_PRIVATE, null);
+//        printDebug("DB Created : " + dbName);
+
+        // With Helper
+        dbHelper = new DatabaseHelper(this);  // this = getApplicationContext()
+        dbHelper = new DatabaseHelper(getApplicationContext(), dbName, 1);
+
+        try {
+            db = dbHelper.getWritableDatabase();
+            printDebug("DB Created by Helper : " + dbName);
+        } catch(Exception e) {
+            printDebug("[ERROR] Insert DB Name..");
+        }
     }
 
     public void createTable() {
@@ -63,16 +77,15 @@ public class MainActivity extends AppCompatActivity {
             printDebug("[ERROR] NO Database Selected..");
         } else {
             String sql = "CREATE TABLE if not exists " + table
-                    + "(idx integer auto_increment, name text, age integer, primary key(idx) )";
+                    + "(idx integer auto_increment, name text, age integer, mobile text, primary key(idx) )";
 
-            if(table == null) {
-                printDebug("[ERROR] No Table Created..");
-                return;
+            try {
+                db.execSQL(sql);
+                printDebug("Table Created : " + table);
+                insert();
+            } catch(Exception e) {
+                printDebug("[ERROR] Insert Table Name..");
             }
-
-            db.execSQL(sql);
-            printDebug("Table Created : " + table);
-            insert();
         }
     }
 
