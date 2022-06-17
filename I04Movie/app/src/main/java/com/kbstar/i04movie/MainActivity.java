@@ -66,7 +66,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void process() {
-        String url = input.getText().toString();
+        String url = "http://www.kobis.or.kr/kobisopenapi/webservice/rest/boxoffice/searchDailyBoxOfficeList.json?key=304eba0921b36f45a1ff72c27591765f&targetDt="
+                + input.getText().toString();
+
+        adapter.removeAllItems();
 
         StringRequest request = new StringRequest(
                 Request.Method.GET,                                 // 1. 메소드

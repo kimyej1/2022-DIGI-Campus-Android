@@ -61,6 +61,14 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
         return items.get(idx);
     }
 
+    public void removeAllItems() {
+        for(int i=items.size()-1; i>=0; i--)
+        {
+            items.remove(i);
+        }
+    }
+
+
     // 한번에 리스트 형태를 만들어서 넣기
     public void setItems(ArrayList<Movie> items){
         this.items = items;
