@@ -110,25 +110,31 @@ public class MainActivity extends AppCompatActivity {
 
     public void search() {
 
-        printDebug("Search()");
+        try {
+            printDebug("Search()");
 
-        String sql = "SELECT * FROM " + table + " ORDER BY idx DESC";
-        Cursor cursor = db.rawQuery(sql, null);
+            String sql = "SELECT * FROM " + table + " ORDER BY idx DESC";
+            Cursor cursor = db.rawQuery(sql, null);
 
-        int dataCnt = cursor.getCount();
-        printDebug("data count = " + dataCnt);
+            int dataCnt = cursor.getCount();
+            printDebug("data count = " + dataCnt);
 
-        for(int i=0; i<dataCnt; i++) {
-            cursor.moveToNext();
+            for(int i=0; i<dataCnt; i++) {
+                cursor.moveToNext();
 
-            int idx = cursor.getInt(0);
-            String name = cursor.getString(1);
-            int age = cursor.getInt(2);
-            String mobile = cursor.getString(3);
+                int idx = cursor.getInt(0);
+                String name = cursor.getString(1);
+                int age = cursor.getInt(2);
+                String mobile = cursor.getString(3);
 
-            String dataFormat = idx + "\t" + name + "\t" + age + "\t" + mobile;
-            printDebug(dataFormat);
+                String dataFormat = idx + "\t" + name + "\t" + age + "\t" + mobile;
+                printDebug(dataFormat);
+            }
+            cursor.close();
+
+        } catch(Exception e) {
+            printDebug("[ERROR] No Table to Search..");
         }
-        cursor.close();
+
     }
 }
