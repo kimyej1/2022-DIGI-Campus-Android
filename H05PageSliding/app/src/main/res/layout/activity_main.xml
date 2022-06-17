@@ -19,6 +19,14 @@
             android:layout_height="wrap_content"
             android:text="Main Page"
             android:textSize="20sp"/>
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="left"
+            android:src="@drawable/face1" />
     </LinearLayout>
 
     <LinearLayout
@@ -30,26 +38,23 @@
         android:orientation="vertical"
         android:visibility="gone">
 
-        <TextView
-            android:id="@+id/textView2"
+        <Button
+            android:id="@+id/btnMenu1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="AAA" />
+            android:text="Menu 1" />
 
-        <TextView
-            android:id="@+id/textView3"
+        <Button
+            android:id="@+id/btnMenu2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="BBB" />
+            android:text="Menu 2" />
 
-        <TextView
-            android:id="@+id/textView4"
+        <Button
+            android:id="@+id/btnMenu3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="CCC" />
+            android:text="Menu 3" />
     </LinearLayout>
 
     <LinearLayout
@@ -57,7 +62,7 @@
         android:layout_height="match_parent"
         android:background="#99FFFFFF"
         android:gravity="right|center_vertical"
-        android:orientation="vertical">
+        android:orientation="horizontal">
 
         <Button
             android:id="@+id/button"
