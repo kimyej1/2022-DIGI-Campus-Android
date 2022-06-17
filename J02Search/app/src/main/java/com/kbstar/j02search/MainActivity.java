@@ -21,8 +21,8 @@ import android.widget.TextView;
  */
 public class MainActivity extends AppCompatActivity {
 
-    EditText inputDB, inputTable;
-    Button buttonDB, buttonTable, buttonSearch;
+    EditText inputDB, inputTable, textName, textAge, textMobile;
+    Button buttonDB, buttonTable, buttonSearch, buttonInsert;
     TextView debugText;
     String table;
 
@@ -38,8 +38,14 @@ public class MainActivity extends AppCompatActivity {
         inputTable = findViewById(R.id.inputTable);
         buttonDB = findViewById(R.id.buttonDB);
         buttonTable = findViewById(R.id.buttonTable);
-        buttonSearch = findViewById(R.id.buttonSearch);
+
         debugText = findViewById(R.id.debugText);
+        textName = findViewById(R.id.textName);
+        textAge = findViewById(R.id.textAge);
+        textMobile = findViewById(R.id.textMobile);
+
+        buttonSearch = findViewById(R.id.buttonSearch);
+        buttonInsert = findViewById(R.id.buttonInsert);
 
         buttonDB.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,6 +68,13 @@ public class MainActivity extends AppCompatActivity {
                 search();
             }
         });
+
+        buttonInsert.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                insert();
+            }
+        });
     }
 
     public void createDB(String dbName) {
@@ -70,8 +83,8 @@ public class MainActivity extends AppCompatActivity {
 //        printDebug("DB Created : " + dbName);
 
         // With Helper
-        dbHelper = new DatabaseHelper(this);  // this = getApplicationContext()
-        dbHelper = new DatabaseHelper(getApplicationContext(), dbName, 1);
+//        dbHelper = new DatabaseHelper(this);  // this = getApplicationContext()
+        dbHelper = new DatabaseHelper(this, dbName, 1);
 
         try {
             db = dbHelper.getWritableDatabase();
@@ -91,7 +104,6 @@ public class MainActivity extends AppCompatActivity {
             try {
                 db.execSQL(sql);
                 printDebug("Table Created : " + table);
-                insert();
             } catch(Exception e) {
                 printDebug("[ERROR] Insert Table Name..");
             }
@@ -103,9 +115,14 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void insert() {
-        String sql = "INSERT INTO " + table + "(name, age, mobile) VALUES ('Kookmin Kim', '12', '010-2222-1111')";
+        String name = textName.getText().toString();
+        String age = textAge.getText().toString();
+        String mobile = textMobile.getText().toString();
+
+        String sql = "INSERT INTO " + table + " (name, age, mobile) VALUES ('"
+                + name + "', '" + age + "', '" + mobile + "')";
         db.execSQL(sql);
-        printDebug("Record Added!");
+        printDebug("Record Added! : (name, age, mobile) = ('" + name + "', '" + age + "', '" + mobile + "');");
     }
 
     public void search() {

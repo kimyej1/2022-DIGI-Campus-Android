@@ -1,4 +1,4 @@
-package com.kbstar.j02search;
+package com.kbstar.j03provider;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -10,12 +10,22 @@ import androidx.annotation.Nullable;
 public class DatabaseHelper extends SQLiteOpenHelper {
 
     // Variables
-    public static String dbName = "kbstar.db";
-    public static int VERSION = 1;
+    private static String DB = "kbstar.db";
+    private static int VERSION = 1;
+
+    private final String IDX = "idx";
+    private final String NAME = "name";
+    private final String AGE = "age";
+    private final String MOBILE = "mobile";
+    private final String TABLE = "member";
+    private final String CREATE = "CREATE TABLE " + TABLE + "(" + IDX + " integer, "
+            + NAME + " text, " + AGE + " integer, " + MOBILE + " text, PRIMARY KEY(" + IDX + "))";
+
+    private final String[] COLUMNS = {IDX, NAME, AGE, MOBILE};
 
     // Constructors
     public DatabaseHelper(@Nullable Context context) {
-        super(context, dbName, null, VERSION);
+        super(context, DB, null, VERSION);
     }
 
     public DatabaseHelper(@Nullable Context context, @Nullable String name, int version) {
@@ -25,11 +35,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     // Implement Methods
     @Override
     public void onCreate(SQLiteDatabase db) {
-        printLog("onCreate()");
-        String sql = "CREATE TABLE if not exists user_table"
-                + "( idx integer, name text, age integer, mobile text, primary key(idx) )";
-
-        db.execSQL(sql);
+        printLog("onCreate() by Helper");
+        db.execSQL(CREATE); // create table
     }
 
     @Override
@@ -37,10 +44,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         printLog("onUpgrade()");
 
         if(newVersion > 1 ) {
-            db.execSQL("DROP TABLE if exists " + dbName);
-
-            String sql = "ALTER TABLE user_table add mobile text";
-            db.execSQL(sql);
+            db.execSQL("DROP TABLE if exists " + DB);
+            db.execSQL(CREATE);
         }
     }
 

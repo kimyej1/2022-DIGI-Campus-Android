@@ -9,6 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.J03Provider">
+
+        <!-- Member Provider 추가 -->
+        <provider
+            android:name=".MemberProvider"
+            android:authorities="com.kbstar.j03provider"
+            android:enabled="true"
+            android:exported="true"></provider>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">
