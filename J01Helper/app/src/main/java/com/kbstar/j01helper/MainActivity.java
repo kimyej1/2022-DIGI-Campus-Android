@@ -1,4 +1,4 @@
-package com.kbstar.i05mydatabase;
+package com.kbstar.j01helper;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -23,7 +23,7 @@ public class MainActivity extends AppCompatActivity {
     EditText inputDB, inputTable;
     Button buttonDB, buttonTable;
     TextView debugText;
-    String table ;
+    String table;
     SQLiteDatabase db;
 
     @Override
@@ -54,12 +54,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void createDB(String dbName) {
-        try {
-            db = openOrCreateDatabase(dbName, MODE_PRIVATE, null);
-            printDebug("DB Created : " + dbName);
-        } catch(Exception e) {
-            printDebug("[ERROR] Insert DB Name..");
-        }
+        db = openOrCreateDatabase(dbName, MODE_PRIVATE, null);
+        printDebug("DB Created : " + dbName);
     }
 
     public void createTable() {
@@ -69,13 +65,14 @@ public class MainActivity extends AppCompatActivity {
             String sql = "CREATE TABLE if not exists " + table
                     + "(idx integer auto_increment, name text, age integer, primary key(idx) )";
 
-            try {
-                db.execSQL(sql);
-                printDebug("Table Created : " + table);
-                insert();
-            } catch (Exception e) {
-                printDebug("[ERROR] Insert Table Name..");
+            if(table == null) {
+                printDebug("[ERROR] No Table Created..");
+                return;
             }
+
+            db.execSQL(sql);
+            printDebug("Table Created : " + table);
+            insert();
         }
     }
 
