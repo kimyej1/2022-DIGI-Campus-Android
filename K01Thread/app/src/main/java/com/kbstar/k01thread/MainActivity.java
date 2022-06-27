@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     class MyThread extends Thread {
-        @2
+        @Override
         public void run() {
             for(int i = 0; i<100; i++) {
                 try {
