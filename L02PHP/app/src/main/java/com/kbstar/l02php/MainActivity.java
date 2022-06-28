@@ -8,6 +8,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import java.io.BufferedReader;
 import java.io.InputStream;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnInsert;
     EditText inputId, inputName, inputPass;
+    TextView display;
     private String TAG = "APP2PHP";
 
     @Override
@@ -32,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         inputId = findViewById(R.id.inputId);
         inputName = findViewById(R.id.inputName);
         inputPass = findViewById(R.id.inputPass);
+        display = findViewById(R.id.display);
 
         btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,8 +60,11 @@ public class MainActivity extends AppCompatActivity {
         }
 
         @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
+        protected void onPostExecute(String response) {
+            super.onPostExecute(response);
+
+            Log.d(TAG, "onPostExcute : " + response);
+            display.setText(response + "\n");
         }
         // (주소, id, name, pass)
 
@@ -110,6 +116,7 @@ public class MainActivity extends AppCompatActivity {
                     rcvData = rcvData + line;
                 }
                 bufferedReader.close();
+                Log.d(TAG, "RcvData = " + rcvData);
 
                 return rcvData;
 
