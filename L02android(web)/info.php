@@ -2,27 +2,27 @@
 	include "db.php";
 	$conn = connectDB();
     
-    $TEST_MODE = true;
+    $TEST_MODE = false;
 
 	$userAgent = $_SERVER["HTTP_USER_AGENT"];
 	$android = strpos($userAgent, "Android");	// strpos : string position
 	$ios = strpos($userAgent, "Mac OS");		// userAgent 에 "Android, Mac OS" 라는 글자가 있는지?
 
 	if($android or $TEST_MODE) {
-        
+
         if($TEST_MODE) {
             if(isset($_GET["idx"]))
                 $idx = $_GET["idx"];
-            else   
+            else
                 $idx = 0;
         } else {
             if(isset($_POST["idx"]))
                 $idx = $_POST["idx"];
-            else   
+            else
                 $idx = 0;
         }
 
-        $sql = "SELECT * FROM user_table ORDER BY name ASC";
+        $sql = "SELECT * FROM user_table WHERE idx = '$idx' ORDER BY name ASC";
         $result = mysqli_query($conn, $sql);
         $data = mysqli_fetch_array($result);
 
@@ -33,11 +33,11 @@
             $data = mysqli_fetch_array($result);
         } else {
 
-        }      
+        }
 
 		header("Content-type: application/json; charset=utf-8");
-		// $json = json_encode( $array, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );   // 배열을 넣음
-        $json = json_encode( array("kbusers" => $array) , JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );    // 배열을 새로 만듬
+		$json = json_encode( $array, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );   // 배열을 넣음
+        // $json = json_encode( array("kbusers" => $array) , JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE );    // 배열을 새로 만듬
 		echo $json;
 
 	} else {    // web으로 접속했으면..
