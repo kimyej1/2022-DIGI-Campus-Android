@@ -1,0 +1,27 @@
+html, body { 
+    max-width:100%; 
+}
+
+body 
+{
+    
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow:hidden;
+    text-overflow: ellipsis;
+    width:100px;
+}
+
+.row {line-height:200%; min-width:100%; min-height:30px; height:auto; padding-top:5px; border:0px solid #FFFFFF;}
+.colLine { line-height:200%; min-height:30px; border-bottom:1px dotted #DDDDDD; padding-top:4px; padding-bottom:4px;}
+.icon { vertical-align:text-bottom; }
+
+table {
+    border-collapse: collapse;
+}
+
+a:link { text-decoration:none; color: #333333; }
+a:hover { text-decoration:none; color: #FF0000; }
+a:visited { text-decoration:none; color: #333333; }
