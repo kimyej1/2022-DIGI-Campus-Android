@@ -114,7 +114,7 @@
 
 				<div class="row">
 					<div class="col text-center">
-						<button type="submit" class="btn btn-primary">가입</button>
+						<button type="submit" class="btn btn-primary">Register</button>
 					</div>
 				</div>
 			</div>
