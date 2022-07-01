@@ -22,10 +22,16 @@
 		$array = array();
 
 		if($data) {
+			$_SESSION["sess_id"] = $data["id"];
+			$_SESSION["sess_name"] = $data["name"];
+			$_SESSION["sess_level"] = $data["level"];
+			$_SESSION["sess_memo"] = $data["memo"];
+
 			$array["result"] = "1";
 			$array["id"] = $data["id"];
 			$array["name"] = $data["name"];
 			$array["level"] = $data["level"];
+			$array["memo"] = $data["memo"];
 		} else {
 			$array["result"] = "-1";
 		}
@@ -49,6 +55,7 @@
 				$_SESSION["sess_id"] = $data["id"];
 				$_SESSION["sess_name"] = $data["name"];
 				$_SESSION["sess_level"] = $data["level"];
+				$_SESSION["sess_memo"] = $data["memo"];
 
 				$msg = "Login Success!";
 
