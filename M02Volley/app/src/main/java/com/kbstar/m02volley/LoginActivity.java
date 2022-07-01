@@ -25,6 +25,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText inputId, inputPass;
     private Button btnLogin;
     Boolean isSuccess = false;
+    private static String LOGIN_ID;  // static 안써도됨
+    private static String LOGIN_NAME;
+    private static String LOGIN_LEVEL;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -63,6 +66,12 @@ public class LoginActivity extends AppCompatActivity {
                     if(loginResult.equals("1")) {
                         printSuccessFail = "Succeed";
                         isSuccess = true;
+
+                        // id = jsonObject.getString("id"); 이렇게 다른값들도 가져오기
+                        LOGIN_ID = jsonObject.getString("id");
+                        LOGIN_NAME = jsonObject.getString("name");
+                        LOGIN_LEVEL = jsonObject.getString("level");
+
                     } else {
                         printSuccessFail = "Failed";
                         isSuccess = false;  // default false지만, 전역변수라 다른데서 가져다 썼을 수도 있으니까..
@@ -76,6 +85,10 @@ public class LoginActivity extends AppCompatActivity {
                                 public void onClick(DialogInterface dialogInterface, int i) {
                                     if(isSuccess) {
                                         Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                        intent.putExtra("LOGIN_ID", LOGIN_ID);
+                                        intent.putExtra("LOGIN_NAME", LOGIN_NAME);
+                                        intent.putExtra("LOGIN_LEVEL", LOGIN_LEVEL);
+
                                         startActivity(intent);
                                         finish();   // 가입 완료 후 메인으로 돌아가기
                                     } else {
