@@ -22,6 +22,8 @@
 			$name = $_POST["name"];
 		if(isset($_POST["pass"]))
 			$pass = $_POST["pass"];
+		if(isset($_POST["memo"]))
+			$memo = $_POST["memo"];
 
 		$id = str_replace(" ", "", $id);
 		$sql = "INSERT INTO user_table (id, name, pass, level) VALUES ('$id', '$name', '$pass', '1')";
@@ -53,6 +55,7 @@
 			$id = $_POST["id"];
 			$name = $_POST["name"];
 			$pass = $_POST["pass"];
+			$memo = $_POST["memo"];
 
 			$sql = "INSERT INTO user_table (id, name, pass, level) VALUES ('$id', '$name', '$pass', '1')";
 			$result = mysqli_query($conn, $sql);
@@ -67,25 +70,25 @@
 		}
 
 		// http://1.2.3.4/android/insert.php?id=abcd&pass=1111&name=홍길동
-		
+
 		?>
 
-		<!doctype html> 
-		<html lang="ko"> 
-			<head> 
-				<meta charset="UTF-8"> 
-				<title>국민은행</title> 
-				<meta name="viewport" 
-					content="width=device-width, maximum-scale=3.0, user-scalable=yes"> 
-				<link href="style.css" rel="stylesheet" type="text/css">  
-				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> 
-					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
-				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> 
-		
-		
-			</head> 
+		<!doctype html>
+		<html lang="ko">
+			<head>
+				<meta charset="UTF-8">
+				<title>국민은행</title>
+				<meta name="viewport"
+					content="width=device-width, maximum-scale=3.0, user-scalable=yes">
+				<link href="style.css" rel="stylesheet" type="text/css">
+				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+			</head>
 		<body>
 			<div class="container">
 				<div class="row">
@@ -103,6 +106,12 @@
 					<div class="col-3">Name</div>
 					<div class="col">
 						<input type="text" name="name" class="form-control">
+					</div>
+				</div>
+				<div class="row">
+					<div class="col-3">Memo</div>
+					<div class="col">
+						<input type="text" name="memo" class="form-control">
 					</div>
 				</div>
 				<div class="row">

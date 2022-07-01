@@ -29,7 +29,7 @@
         $array = array();
 
         if($data) {
-            $array = array("idx" => $data["idx"], "id" => $data["id"], "name" => $data["name"], "level" => $data["level"]);
+            $array = array("idx" => $data["idx"], "id" => $data["id"], "name" => $data["name"], "level" => $data["level"], "memo" => $data["memo"]);
             $data = mysqli_fetch_array($result);
         } else {
 
@@ -44,22 +44,22 @@
 
 		?>
 
-		<!doctype html> 
-		<html lang="ko"> 
-			<head> 
-				<meta charset="UTF-8"> 
-				<title>국민은행</title> 
-				<meta name="viewport" 
-					content="width=device-width, maximum-scale=3.0, user-scalable=yes"> 
-				<link href="style.css" rel="stylesheet" type="text/css">  
-				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"> 
-				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> 
-				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script> 
-					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"> 
-				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script> 
-		
-		
-			</head> 
+		<!doctype html>
+		<html lang="ko">
+			<head>
+				<meta charset="UTF-8">
+				<title>국민은행</title>
+				<meta name="viewport"
+					content="width=device-width, maximum-scale=3.0, user-scalable=yes">
+				<link href="style.css" rel="stylesheet" type="text/css">
+				<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+				<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+				<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+					<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+				<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+
+
+			</head>
 		<body>
 			<div class="container">
 				<div class="row">
@@ -71,7 +71,7 @@
 
                     if(isset($_GET["idx"]))
                         $idx = $_GET["idx"];
-                    else   
+                    else
                         $idx = 0;
 
                     $sql = "SELECT * FROM user_table WHERE idx='$idx' ORDER BY name ASC";
@@ -86,6 +86,7 @@
                             <div class="col">ID</div>
                             <div class="col">Name</div>
                             <div class="col">Level</div>
+                            <div class="col">Memo</div>
                         </div>
 
                         <div class="row rowLine">
@@ -93,6 +94,7 @@
                             <div class="col"><?php echo $data["id"]?></div>
                             <div class="col"><?php echo $data["name"]?></div>
                             <div class="col"><?php echo $data["level"]?></div>
+                            <div class="col"><?php echo $data["memo"]?></div>
                         </div>
                         <?php
 
