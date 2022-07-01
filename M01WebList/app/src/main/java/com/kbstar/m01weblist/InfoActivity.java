@@ -22,7 +22,7 @@ import java.net.URL;
 
 public class InfoActivity extends AppCompatActivity {
 
-    private TextView tv_id, tv_idx, tv_name, tv_level, display;
+    private TextView tv_id, tv_idx, tv_name, tv_level, tv_memo, display;
     private Button btnClose;
 
     private String extraIdx, jsonString;
@@ -38,6 +38,7 @@ public class InfoActivity extends AppCompatActivity {
         tv_idx = findViewById(R.id.tv_idx);
         tv_name = findViewById(R.id.tv_name);
         tv_level = findViewById(R.id.tv_level);
+        tv_memo = findViewById(R.id.tv_memo);
 
         display = findViewById(R.id.display);
         btnClose = findViewById(R.id.btnClose);
@@ -140,6 +141,7 @@ public class InfoActivity extends AppCompatActivity {
         String JSON_TAG_ID = "id";
         String JSON_TAG_NAME = "name";
         String JSON_TAG_LEVEL = "level";
+        String JSON_TAG_MEMO = "memo";
 
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
@@ -148,6 +150,7 @@ public class InfoActivity extends AppCompatActivity {
             tv_id.setText( jsonObject.getString(JSON_TAG_ID) );
             tv_name.setText( jsonObject.getString(JSON_TAG_NAME) );
             tv_level.setText( jsonObject.getString(JSON_TAG_LEVEL) );
+            tv_memo.setText( jsonObject.getString(JSON_TAG_MEMO) );
 
         } catch (Exception e) {
             Log.d(TAG, "Exception : " + e.getMessage());

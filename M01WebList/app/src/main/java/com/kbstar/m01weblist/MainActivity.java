@@ -150,6 +150,7 @@ public class MainActivity extends AppCompatActivity {
         String JSON_TAG_ID = "id";
         String JSON_TAG_NAME = "name";
         String JSON_TAG_LEVEL = "level";
+        String JSON_TAG_MEMO = "memo";
 
         try {
             JSONObject jsonObject = new JSONObject(jsonString);
@@ -165,6 +166,7 @@ public class MainActivity extends AppCompatActivity {
                 userData.setUserId(item.getString(JSON_TAG_ID));
                 userData.setUserName(item.getString(JSON_TAG_NAME));
                 userData.setUserLevel(item.getString(JSON_TAG_LEVEL));
+                userData.setUserMemo(item.getString(JSON_TAG_MEMO));
 
                 arrayList.add(userData);
                 adapter.notifyDataSetChanged(); // Refresh

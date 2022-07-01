@@ -31,7 +31,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.DataViewHolder
     class DataViewHolder extends RecyclerView.ViewHolder {
 
         // Variables
-        private TextView tv_idx, tv_name, tv_id, tv_level;
+        private TextView tv_idx, tv_name, tv_id, tv_level, tv_memo;
 
         // Inner Class
         public DataViewHolder(@NonNull View itemView) {
@@ -41,6 +41,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.DataViewHolder
             this.tv_id = itemView.findViewById(R.id.tv_id);
             this.tv_name = itemView.findViewById(R.id.tv_name);
             this.tv_level = itemView.findViewById(R.id.tv_level);
+            this.tv_memo = itemView.findViewById(R.id.tv_memo);
         }
     }
 
@@ -61,6 +62,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.DataViewHolder
         holder.tv_id.setText( userList.get(position).getUserId() );
         holder.tv_name.setText( userList.get(position).getUserName() );
         holder.tv_level.setText( userList.get(position).getUserLevel() );
+        holder.tv_memo.setText( userList.get(position).getUserMemo() );
 
         String printLevel = "";
         if(userList.get(position).getUserLevel().equals("1"))

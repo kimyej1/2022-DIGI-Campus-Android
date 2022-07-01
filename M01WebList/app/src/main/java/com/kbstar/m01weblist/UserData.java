@@ -2,7 +2,7 @@ package com.kbstar.m01weblist;
 
 public class UserData {
     // Variables
-    private String userIdx, userName, userId, userLevel;
+    private String userIdx, userName, userId, userLevel, userMemo;
 
     // Getters and Setters
     public String getUserIdx() {
@@ -10,7 +10,7 @@ public class UserData {
     }
 
     public void setUserIdx(String userIdx) {
-        this.userIdx = userIdx;
+        this.userIdx = "No. " + userIdx;
     }
 
     public String getUserName() {
@@ -35,5 +35,13 @@ public class UserData {
 
     public void setUserLevel(String userLevel) {
         this.userLevel = userLevel;
+    }
+
+    public String getUserMemo() {
+        return userMemo;
+    }
+
+    public void setUserMemo(String userMemo) {
+        this.userMemo = "memo :  " + userMemo;
     }
 }
