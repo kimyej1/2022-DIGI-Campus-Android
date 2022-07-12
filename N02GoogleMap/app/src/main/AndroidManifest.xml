@@ -14,7 +14,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.N02GoogleMap">
 
-        <meta-data android:name="com.google.android.geo.API_KEY" android:value="*API KEY" />
+        <meta-data android:name="com.google.android.geo.API_KEY" android:value="AIzaSyA1FVUwHtyUGXQfnRF81D8p3fZStv0zPok" />
 
         <activity
             android:name=".MainActivity"
