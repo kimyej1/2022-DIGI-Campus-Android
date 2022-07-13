@@ -5,6 +5,9 @@
       <map>
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.18541666666666667" />
         <entry key="app/src/main/res/menu/menu_main.xml" value="0.18541666666666667" />
+        <entry key="test1_resource/src/main/res/drawable/round_button.xml" value="0.153" />
+        <entry key="test1_resource/src/main/res/layout-land/activity_main.xml" value="0.17552083333333332" />
+        <entry key="test1_resource/src/main/res/layout/activity_main.xml" value="0.30512820512820515" />
       </map>
     </option>
   </component>
