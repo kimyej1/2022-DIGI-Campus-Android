@@ -13,6 +13,8 @@ dependencyResolutionManagement {
     }
 }
 rootProject.name = "AndroidLab"
+// 모듈단위로 추가/삭제 하려면 여기서 조정!
 include ':app'
 include ':KotlinTest'
 include ':test1_resource'
+include ':test2_webview'

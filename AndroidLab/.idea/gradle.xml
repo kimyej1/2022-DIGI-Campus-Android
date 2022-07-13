@@ -13,6 +13,7 @@
             <option value="$PROJECT_DIR$/KotlinTest" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/test1_resource" />
+            <option value="$PROJECT_DIR$/test2_webview" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
