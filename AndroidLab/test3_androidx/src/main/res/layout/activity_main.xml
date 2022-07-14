@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.drawerlayout.widget.DrawerLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer">
+
+    <!-- 처음부터 화면에 출력되는 부분 -->
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinator"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar"
+            android:layout_width="match_parent"
+            android:layout_height="242dp"
+            android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:layout_width="match_parent"
+                android:layout_height="242dp"
+                app:contentScrim="?attr/colorPrimary"
+                app:expandedTitleMarginBottom="50dp"
+                app:expandedTitleMarginStart="48dp"
+                app:title="AppBar Title"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed">
+                <!-- contentScrim : 앱바가 접히다가,, 어느정도 접히면 칠할 색상 -->
+
+                <ImageView
+                    android:id="@+id/backdrop"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:src="@drawable/baseball"
+                    android:scaleType="centerCrop"
+                    app:layout_collapseMode="parallax"/>
+                    <!-- parallax : 접힐때 그냥 같이 접혀! -->
+
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/toolbar"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:layout_collapseMode="pin"/>
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/tabs"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_gravity="bottom"
+                    android:background="#00000000"
+                    app:layout_collapseMode="parallax"
+                    app:tabMode="scrollable"/>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+        <!--
+            layout_behavior : 단순 문자열 아니다. 클래스명! (appbarLayout의 inner class 명..)
+                scroll 정보를 coordinator에게 전달할 준비는 되었지만,
+                coodinator에게 누구한테 전달하라고 그 정보를 받을 클래스를 알려줘야하므로!
+        -->
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/viewpager"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior"/>
+
+        <com.google.android.material.floatingactionbutton.ExtendedFloatingActionButton
+            android:id="@+id/fab"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:text="Extended"
+            app:icon="@android:drawable/ic_input_add"
+            app:layout_anchor="@id/viewpager"
+            app:layout_anchorGravity="bottom|right"/> <!-- viewpager가 id인 애 우측하단에 도킹하자 -->
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <com.google.android.material.navigation.NavigationView
+        android:id="@+id/navigationView"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        app:headerLayout="@layout/navigation_header"
+        app:menu="@menu/menu_navigation"/>
+    <!--
+        android:layout_gravity="start" : 어느 방향에서 끌려나올 것인가?
+            left, right, start(언어 쓰는 방향대로)
+    -->
+
+</androidx.drawerlayout.widget.DrawerLayout>

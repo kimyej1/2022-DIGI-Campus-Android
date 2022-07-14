@@ -9,7 +9,7 @@ import android.webkit.WebView
 import android.widget.Toast
 import com.kbstar.test2_webview.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {  // 버전 하위호환성때문에 Activity 대신 AppCompatActivity 사용
 
     // js에게 공개하기 위한 클래스
     class JavascriptTest {

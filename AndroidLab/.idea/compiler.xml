@@ -5,6 +5,7 @@
       <module name="AndroidLab.app" target="11" />
       <module name="AndroidLab.test1_resource" target="11" />
       <module name="AndroidLab.test2_webview" target="11" />
+      <module name="AndroidLab.test3_androidx" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
