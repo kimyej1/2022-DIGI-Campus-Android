@@ -15,6 +15,8 @@
             <option value="$PROJECT_DIR$/test1_resource" />
             <option value="$PROJECT_DIR$/test2_webview" />
             <option value="$PROJECT_DIR$/test3_androidx" />
+            <option value="$PROJECT_DIR$/test4_provider" />
+            <option value="$PROJECT_DIR$/test5_fcm" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />

@@ -6,6 +6,8 @@
       <module name="AndroidLab.test1_resource" target="11" />
       <module name="AndroidLab.test2_webview" target="11" />
       <module name="AndroidLab.test3_androidx" target="11" />
+      <module name="AndroidLab.test4_provider" target="11" />
+      <module name="AndroidLab.test5_fcm" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
