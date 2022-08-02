@@ -8,6 +8,7 @@
       <module name="AndroidLab.test3_androidx" target="11" />
       <module name="AndroidLab.test4_provider" target="11" />
       <module name="AndroidLab.test5_fcm" target="11" />
+      <module name="AndroidLab.test6_retrofit" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>
